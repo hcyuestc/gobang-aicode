@@ -327,6 +327,38 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(handleResize, 100);
     });
+
+    // 提供测试钩子，便于在不依赖DOM交互的情况下验证核心逻辑
+    if (typeof window !== 'undefined') {
+        window.__gomokuTestHooks = {
+            setBoardState(state) {
+                if (!Array.isArray(state) || state.length !== BOARD_SIZE) {
+                    throw new Error('state must be a 15x15 array');
+                }
+                gameBoard = state.map((row) => {
+                    if (!Array.isArray(row) || row.length !== BOARD_SIZE) {
+                        throw new Error('state must be a 15x15 array');
+                    }
+                    return row.slice();
+                });
+            },
+            getBoardState() {
+                return gameBoard.map((row) => row.slice());
+            },
+            checkWinAt(row, col) {
+                return checkWin(row, col);
+            },
+            checkDrawState() {
+                return checkDraw();
+            },
+            constants: {
+                BOARD_SIZE,
+                EMPTY,
+                BLACK,
+                WHITE,
+            },
+        };
+    }
     
     // 初始化游戏
     // 添加禁止双击缩放的meta标签支持

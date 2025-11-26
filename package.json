@@ -1,0 +1,23 @@
+{
+  "name": "wuziqi",
+  "version": "1.0.0",
+  "description": "五子棋前端小游戏",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "gomoku",
+    "five-in-a-row",
+    "game"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.2.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
