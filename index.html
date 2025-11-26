@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五子棋 - 经典策略游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>五子棋</h1>
+            <p class="subtitle">落子连成五子获胜</p>
+        </header>
+
+        <main>
+            <div class="game-area">
+                <div class="board-container">
+                    <div id="game-board" class="board">
+                        <!-- 棋盘将由JavaScript动态生成 -->
+                    </div>
+                </div>
+
+                <div class="game-info">
+                    <div class="status-container">
+                        <div id="game-status" class="status">轮到黑方落子</div>
+                        <div class="current-player">
+                            <div class="player-indicator">
+                                <span id="current-player-dot" class="dot black"></span>
+                                <span id="current-player-text">黑方回合</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button id="restart-btn" class="btn primary">重新开始</button>
+                        <button id="undo-btn" class="btn secondary" disabled>悔棋</button>
+                    </div>
+
+                    <div class="scoreboard">
+                        <div class="score-item">
+                            <div class="dot black"></div>
+                            <span>黑方: </span>
+                            <span id="black-score">0</span>
+                        </div>
+                        <div class="score-item">
+                            <div class="dot white"></div>
+                            <span>白方: </span>
+                            <span id="white-score">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 五子棋游戏 | 使用HTML、CSS和JavaScript开发</p>
+        </footer>
+    </div>
+
+    <!-- 游戏结束弹窗 -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="winner-text">黑方获胜！</h2>
+            <button id="new-game-btn" class="btn primary">新游戏</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
